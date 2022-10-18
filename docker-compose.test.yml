@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  lusid-sdk-angular-gen:
+    container_name: lusid-sdk-angular14-gen
+    build: .
+    image: finbourne/lusid-sdk-angular14-gen
+    volumes:
+      - .:/usr/src
+    entrypoint: /bin/bash
+    command:
+      - -ce
+      - |
+        ./generate.sh lusid.json
+        pwd
+        ls -tla
+        cd /usr/src
+        DISPLAY=":99"
+        printf '#!/bin/sh\nXvfb :99 -screen 0 1280x1024x24 &\nexec "$$@"\n'
+        npm run ng test -- --no-watch --browsers=ChromeHeadlessCI

@@ -1,0 +1,25 @@
+{
+  "name": "@finbourne/lusid-sdk-angular14",
+  "version": "0.11.4870",
+  "description": "An angular (14+) SDK for secure access to the LUSID&reg; by FINBOURNE web API",
+  "keywords": [
+    "LUSID",
+    "Finbourne",
+    "SDK",
+    "angular",
+    "angular14"
+  ],
+  "homepage": "https://github.com/finbourne/lusid-angular14/tree/master/projects/lusid-sdk-angular14",
+  "repository": {
+    "url": "https://github.com/finbourne/lusid-angular14"
+  },
+  "license": "SEE LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/finbourne/lusid-angular14/issues",
+    "email": "lusid-sdk-angular14.issues@finbourne.com"
+  },
+  "peerDependencies": {
+    "@angular/core": "^14.0.0",
+    "rxjs": "^6.6.0"
+  }
+}
