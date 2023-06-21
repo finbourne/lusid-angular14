@@ -47,7 +47,7 @@ cd $gen_root
 sdk_version=$(cat $swagger_file | jq -r '.info.version')
 
 echo "updating version in package.json to '$sdk_version'"
-package_json=$gen_root/projects/$project_name/package.json
+package_json=$project_folder/package.json
 cat $package_json | jq -r --arg SDK_VERSION "$sdk_version" '.version |= $SDK_VERSION' > temp && mv temp $package_json
 
 echo "installing packages (using 'npm ci') : folder $(pwd)"
@@ -58,6 +58,9 @@ npm run ng -- analytics off
 
 echo "ng version"
 npm run ng -- version
+
+echo "Modifying generated files due to some date/time issues"
+sed -i.orig -e 's/String(runDate.toISOString())/runDate/' $sdk_output_folder/api/reconciliations.service.ts
 
 echo "running ng build ('ng build $project_name')"
 npm run build -- $project_name
