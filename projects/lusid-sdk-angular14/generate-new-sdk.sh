@@ -22,8 +22,7 @@ docker compose -f docker-compose.yml down
 echo
 echo "packaging and pushing the generated code"
 pushd dist/$projectName
-npm pack
-npm publish finbourne-$projectName-*.tgz --access public
+npm publish . --access public
 popd
 
 popd
